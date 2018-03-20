@@ -7,30 +7,47 @@ namespace eStore.Domain.CarrinhoContext
     public class Carrinho
     {
         public Guid Id { get; private set; }
-        public Guid? ClienteId { get; private set; }
+        public Guid? UsuarioId { get; private set; }
         public double ValorTotal { get; private set; }
         private readonly IList<Item> Itens;
 
-        internal Carrinho() {
-            Itens = new List<Item>();
+        // EF .ctor
+        private Carrinho() {
+            
         }
 
-        public Carrinho(Guid clienteId, Item item)
+        public Carrinho(Item item)
         {
             Itens = new List<Item>();
             Id = Guid.NewGuid();
-            ClienteId = clienteId;
             AdicionarItem(item);
-            // pedidoCriadoEvent()
+            // carrinhoCriadoEvent()
         }
 
-        public Carrinho(Guid clienteId, IList<Item> itens)
+        public Carrinho(IList<Item> itens)
         {
             Itens = new List<Item>();
             Id = Guid.NewGuid();
-            ClienteId = clienteId;
             AdicionarItens(itens);
-            // pedidoCriadoEvent()
+            // carrinhoCriadoEvent()
+        }
+
+        public Carrinho(Guid usuarioId, Item item)
+        {
+            Itens = new List<Item>();
+            Id = Guid.NewGuid();
+            UsuarioId = usuarioId;
+            AdicionarItem(item);
+            // carrinhoCriadoEvent()
+        }
+
+        public Carrinho(Guid usuarioId, IList<Item> itens)
+        {
+            Itens = new List<Item>();
+            Id = Guid.NewGuid();
+            UsuarioId = usuarioId;
+            AdicionarItens(itens);
+            // carrinhoCriadoEvent()
         }
 
         public void RemoverItem(Item item)

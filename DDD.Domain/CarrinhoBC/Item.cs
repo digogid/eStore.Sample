@@ -5,17 +5,19 @@ namespace eStore.Domain.CarrinhoContext
     public class Item
     {
         public Guid Id { get; private set; }
+        public Guid CarrinhoId { get; private set; }
         public Produto Produto { get; private set; }
         public int Quantidade { get; private set; }
 
-        internal Item()
+        private Item()
         {
 
         }
 
-        public Item(Produto produto, int quantidade)
+        public Item(Guid carrinhoId, Produto produto, int quantidade)
         {
             Id = Guid.NewGuid();
+            CarrinhoId = carrinhoId;
             Produto = produto;
             Quantidade = quantidade;
         }

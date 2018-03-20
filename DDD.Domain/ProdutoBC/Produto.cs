@@ -11,7 +11,7 @@ namespace eStore.Domain.ProdutoContext
         public Categoria Categoria { get; private set; }
         public Dimensao Dimensao { get; private set; }
 
-        internal Produto()
+        private Produto()
         {
 
         }

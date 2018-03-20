@@ -12,7 +12,7 @@ namespace eStore.Domain.PagamentoContext
         public Pedido Pedido { get; private set; }
         public Endereco EnderecoCobranca { get; private set; }
 
-        internal Pagamento()
+        private Pagamento()
         {
 
         }
@@ -50,7 +50,7 @@ namespace eStore.Domain.PagamentoContext
                 residenciaCliente.CEP, 
                 residenciaCliente.Bairro, 
                 residenciaCliente.Cidade.Nome, 
-                residenciaCliente.Cidade.Uf, 
+                residenciaCliente.Cidade.UF, 
                 residenciaCliente.Complemento);
         }
 

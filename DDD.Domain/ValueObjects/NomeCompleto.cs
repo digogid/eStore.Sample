@@ -2,10 +2,10 @@
 {
     public class NomeCompleto
     {
-        public readonly string Nome;
-        public readonly string Sobrenome;
+        public string Nome { get; private set; }
+        public string Sobrenome { get; private set; }
 
-        internal NomeCompleto() { }
+        private NomeCompleto() { }
 
         public NomeCompleto(string primeiro, string sobrenome)
         {

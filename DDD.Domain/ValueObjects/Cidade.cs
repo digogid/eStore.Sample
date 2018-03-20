@@ -1,18 +1,18 @@
 ﻿namespace eStore.Domain
 {
-    public class Cidade
+    public class CidadeUf
     {
         public string Nome { get; private set; }
-        public string Uf { get; private set; }
+        public string UF { get; private set; }
 
-        internal Cidade()
+        private CidadeUf()
         {
 
         }
-        public Cidade(string nome, string uf)
+        public CidadeUf(string nome, string uf)
         {
             Nome = nome;
-            Uf = uf;
+            UF = uf;
         }
     }
 }

@@ -9,14 +9,12 @@ namespace eStore.Domain.UsuarioContext
         public string Email { get; private set; }
         public string Senha { get; private set; }
         public DateTime Nascimento { get; private set; }
-        public Endereco Endereco { get; private set; }
+        public Endereco EnderecoResidencial { get; private set; }
         public Perfil Perfil { get; private set; }
 
         //EF ctor
-        internal Usuario() {
-            Endereco = new Endereco();
-            Nome = new NomeCompleto();
-
+        private Usuario() {
+            
         }
         public Usuario(string nome, string sobrenome, string email, string senha, Perfil perfil)
         {
@@ -37,7 +35,7 @@ namespace eStore.Domain.UsuarioContext
             Nascimento = nascimento;
             Senha = senha;
             Perfil = perfil;
-            Endereco = new Endereco(logradouro, numero, cep, bairro, cidadeNome, cidadeUf, complemento);
+            EnderecoResidencial = new Endereco(logradouro, numero, cep, bairro, cidadeNome, cidadeUf, complemento);
             // usuarioCriadoEvent()
         }
 
@@ -49,7 +47,7 @@ namespace eStore.Domain.UsuarioContext
 
         public void AlterarEndereco(string logradouro, int numero, string cep, string bairro, string cidadeNome, string cidadeUf, string complemento)
         {
-            Endereco = new Endereco(logradouro, numero, cep, bairro, cidadeNome, cidadeUf, complemento);
+            EnderecoResidencial = new Endereco(logradouro, numero, cep, bairro, cidadeNome, cidadeUf, complemento);
             // enderecoAlteradoEvent()
         }
     }

@@ -13,8 +13,8 @@ namespace eStore.Domain.PedidoContext
         private readonly IList<Item> Itens;
 
         // EF ctor
-        internal Pedido() {
-            Itens = new List<Item>();
+        private Pedido() {
+            
         }
 
         public Pedido(Usuario usuario, Item item)
