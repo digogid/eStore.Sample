@@ -7,7 +7,7 @@ namespace eStore.Data
     {
         public DbSet<Domain.UsuarioContext.Usuario> Usuarios { get; set; }
         public DbSet<Domain.ProdutoContext.Produto> Produtos { get; set; }
-        //public DbSet<Domain.PedidoContext.Pedido> Pedidos { get; set; }
+        public DbSet<Domain.PedidoContext.Pedido> Pedidos { get; set; }
         public DbSet<Domain.PedidoContext.Item> PedidoItens { get; set; }
         public DbSet<Domain.PagamentoContext.Pagamento> Pagamentos { get; set; }
         public DbSet<Domain.CarrinhoContext.Carrinho> Carrinhos { get; set; }
@@ -52,18 +52,6 @@ namespace eStore.Data
                 });
             });
 
-            modelBuilder.Entity<Domain.PedidoContext.Item>(i =>
-            {
-                i.ToTable("PedidoItem").HasKey(b => b.Id);
-                i.Ignore(b => b.Produto);
-            });
-
-            //modelBuilder.Entity<Domain.PedidoContext.Pedido>(p =>
-            //{
-            //    p.ToTable("Pedido").HasKey(b => b.Id);
-            //    p.Ignore(e => e.Usuario);
-            //});
-
             modelBuilder.Entity<Domain.PagamentoContext.Pagamento>(p =>
             {
                 p.ToTable("Pagamento").HasKey(b => b.Id);
@@ -87,13 +75,24 @@ namespace eStore.Data
             modelBuilder.Entity<Domain.CarrinhoContext.Carrinho>(p =>
             {
                 p.ToTable("Carrinho").HasKey(b => b.Id);
-
             });
 
 
             modelBuilder.Entity<Domain.CarrinhoContext.Item>(i =>
             {
                 i.ToTable("CarrinhoItem").HasKey(b => b.Id);
+                i.Ignore(b => b.Produto);
+            });
+
+            modelBuilder.Entity<Domain.PedidoContext.Pedido>(p =>
+            {
+                p.ToTable("Pedido").HasKey(b => b.Id);
+                p.Ignore(b => b.Usuario);
+            });
+
+            modelBuilder.Entity<Domain.PedidoContext.Item>(i =>
+            {
+                i.ToTable("PedidoItem").HasKey(b => b.Id);
                 i.Ignore(b => b.Produto);
             });
 

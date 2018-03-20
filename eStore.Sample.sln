@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eStore.Data", "eStore.Data\eStore.Data.csproj", "{A2CA4D55-963E-4EFB-B645-A2015377F457}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eStore.Data.EF", "eStore.Data\eStore.Data.EF.csproj", "{A2CA4D55-963E-4EFB-B645-A2015377F457}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eStore.UI", "eStore.UI\eStore.UI.csproj", "{6C9F535D-04EC-464D-A725-F55CA4B66E18}"
 EndProject
@@ -11,6 +11,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eStore.MigrationRunner", "eStore.MigrationRunner\eStore.MigrationRunner.csproj", "{5459E007-655D-4829-AA9E-243BBB9C390D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eStore.Domain", "eStore.Domain\eStore.Domain.csproj", "{0EC5C8DC-4185-4C0E-9564-F3EB574E984F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{2F662AA4-C31E-4A98-8DBE-5CE040F8D137}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A2CA4D55-963E-4EFB-B645-A2015377F457} = {2F662AA4-C31E-4A98-8DBE-5CE040F8D137}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27B0911A-38C5-442B-86B7-0CD03F4721F2}
