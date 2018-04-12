@@ -13,7 +13,7 @@ namespace eStore.Domain.PedidoContext
         private readonly IList<Item> Itens;
 
         // EF ctor
-        private Pedido() {
+        internal Pedido() {
             
         }
 
