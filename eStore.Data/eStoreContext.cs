@@ -55,7 +55,10 @@ namespace eStore.Data
             modelBuilder.Entity<Domain.PagamentoContext.Pagamento>(p =>
             {
                 p.ToTable("Pagamento").HasKey(b => b.Id);
-                p.Ignore(b => b.Pedido);
+                p.OwnsOne(x => x.Pedido, o =>
+                {
+                    o.Property(x => x.Id).HasColumnName("PedidoId");
+                });
                 p.OwnsOne(b => b.EnderecoCobranca, e =>
                 {
                     e.Property(x => x.Logradouro).HasColumnName(nameof(Domain.Endereco.Logradouro));
@@ -87,7 +90,10 @@ namespace eStore.Data
             modelBuilder.Entity<Domain.PedidoContext.Pedido>(p =>
             {
                 p.ToTable("Pedido").HasKey(b => b.Id);
-                p.Ignore(b => b.Usuario);
+                p.OwnsOne(x => x.Usuario, o =>
+                {
+                    o.Property(x => x.Id).HasColumnName("UsuarioId");
+                });
             });
 
             modelBuilder.Entity<Domain.PedidoContext.Item>(i =>
