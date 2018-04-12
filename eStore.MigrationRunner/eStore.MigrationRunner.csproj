@@ -11,5 +11,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eStore.Configuration\eStore.Configuration.csproj" />
+    <ProjectReference Include="..\eStore.Data\eStore.Data.EF.csproj" />
   </ItemGroup>
 </Project>
