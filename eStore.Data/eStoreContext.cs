@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace eStore.Data
 {
@@ -7,7 +6,7 @@ namespace eStore.Data
     {
         public DbSet<Domain.UsuarioContext.Usuario> Usuarios { get; set; }
         public DbSet<Domain.ProdutoContext.Produto> Produtos { get; set; }
-        //public DbSet<Domain.PedidoContext.Pedido> Pedidos { get; set; }
+        public DbSet<Domain.PedidoContext.Pedido> Pedidos { get; set; }
         public DbSet<Domain.PedidoContext.Item> PedidoItens { get; set; }
         public DbSet<Domain.PagamentoContext.Pagamento> Pagamentos { get; set; }
         public DbSet<Domain.CarrinhoContext.Carrinho> Carrinhos { get; set; }
@@ -23,7 +22,6 @@ namespace eStore.Data
             modelBuilder.Entity<Domain.UsuarioContext.Usuario>(u =>
             {
                 u.ToTable("Usuario").HasKey(e => e.Id);
-                u.OwnsOne(e => e.Nome);
                 u.OwnsOne(b => b.EnderecoResidencial, e =>
                 {
                     e.Property(x => x.Logradouro).HasColumnName(nameof(Domain.Endereco.Logradouro));
@@ -37,6 +35,7 @@ namespace eStore.Data
                         c.Property(y => y.UF).HasColumnName("UF");
                     });
                 });
+                u.OwnsOne(e => e.Nome);
             });
 
 
@@ -58,16 +57,17 @@ namespace eStore.Data
                 i.Ignore(b => b.Produto);
             });
 
-            //modelBuilder.Entity<Domain.PedidoContext.Pedido>(p =>
-            //{
-            //    p.ToTable("Pedido").HasKey(b => b.Id);
-            //    p.Ignore(e => e.Usuario);
-            //});
+            modelBuilder.Entity<Domain.PedidoContext.Pedido>(p =>
+            {
+                p.ToTable("Pedido").HasKey(b => b.Id);
+                p.Ignore(x => x.Usuario);
+            });
 
             modelBuilder.Entity<Domain.PagamentoContext.Pagamento>(p =>
             {
                 p.ToTable("Pagamento").HasKey(b => b.Id);
-                p.Ignore(b => b.Pedido);
+                p.Ignore(x => x.Pedido);
+
                 p.OwnsOne(b => b.EnderecoCobranca, e =>
                 {
                     e.Property(x => x.Logradouro).HasColumnName(nameof(Domain.Endereco.Logradouro));

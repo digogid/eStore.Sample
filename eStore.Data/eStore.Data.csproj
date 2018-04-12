@@ -7,15 +7,23 @@
   <ItemGroup>
     <Compile Remove="Migrations\20180320000635_init.cs" />
     <Compile Remove="Migrations\20180320001402_init.cs" />
+    <Compile Remove="Migrations\20180320005332_init.cs" />
+    <Compile Remove="Migrations\20180402230840_init.cs" />
+    <Compile Remove="Migrations\20180411225409_init.cs" />
+    <Compile Remove="Migrations\20180411231135_init.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.0-preview2-final" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.0-preview2-final" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\eStore.Domain\eStore.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
