@@ -7,6 +7,11 @@
   <ItemGroup>
     <Compile Remove="Migrations\20180320000635_init.cs" />
     <Compile Remove="Migrations\20180320001402_init.cs" />
+    <Compile Remove="Migrations\20180502184257_init.cs" />
+    <Compile Remove="Migrations\20180502185352_init.cs" />
+    <Compile Remove="Migrations\20180502185552_init.cs" />
+    <Compile Remove="Migrations\20180502190750_init.cs" />
+    <Compile Remove="Migrations\20180502190939_init.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,10 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\eStore.Domain\eStore.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
